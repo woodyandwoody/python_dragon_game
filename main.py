@@ -5,12 +5,17 @@ import json
 
 
 def import_info(filename: str) -> list:
-    with open(filename) as f:
-        info = json.load(f)
-        dragons = []
-    for key in info:
-        dragons.append(dragon.Dragon(key[0], key[1], key[2], key[3], key[4], key[5]))
-    return dragons
+    try:
+        with open(filename) as f:
+            info = json.load(f)
+            dragons = []
+    except FileNotFoundError:#其实没有好多用，文件内容可能不正确，等等
+        print(f"{filename} not found")
+        exit()
+    else:
+        for key in info:
+            dragons.append(dragon.Dragon(key[0], key[1], key[2], key[3], key[4], key[5]))
+        return dragons
 
 
 def print_info(dragons: list):

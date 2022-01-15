@@ -79,7 +79,7 @@ class BattleField:
         print(message)
 
     def player_turn(self):
-        for key in range(0, len(self.front_dragons) - 1):
+        for key in range(0, len(self.front_dragons)):
             if self.front_dragons[key].active():
                 self.character_turn(key)
                 while True:
