@@ -2,7 +2,7 @@ HDD_CRITICAL = 100
 
 
 class Dragon:
-    def __init__(self, name, health, damage, skill_damage, speed, skill_active_punish):
+    def __init__(self, name: str, health: int, damage: int, skill_damage: int, speed: int, skill_active_punish: int):
         self.name = name
         self.health = health
         self.damage = damage
@@ -12,7 +12,7 @@ class Dragon:
 
 
 class BattleDragon:
-    def __init__(self, dragon):
+    def __init__(self, dragon: Dragon):
         self.action_point = 0
         self.hdd_point = 0
         self.dragon = dragon
@@ -75,9 +75,9 @@ class BattleDragon:
 
     def info(self):
         if self.alive:
-            message = f"{self.dragon.name.title()}: HP\t {self.health_point} STR\t {self.dragon.damage}\t"
+            message = f"{self.dragon.name.title()}: \tHP {self.health_point} \tSTR {self.dragon.damage}"
             if self.hdd_form:
-                message += "DRAGON FORM!!!"
+                message += "\tDRAGON FORM!!!"
         else:
             message = f"{self.dragon.name.title()}: DEAD"
 
